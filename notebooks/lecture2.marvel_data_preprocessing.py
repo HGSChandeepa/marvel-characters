@@ -17,6 +17,7 @@ from pyspark.sql import SparkSession
 from marvel_characters.config import ProjectConfig
 from marvel_characters.data_processor import DataProcessor
 
+# this will push the changes to the dev catelog
 config = ProjectConfig.from_yaml(config_path="../project_config_marvel.yml", env="dev")
 
 logger.info("Configuration loaded:")
@@ -37,6 +38,8 @@ logger.info(f"Dataset shape: {df.shape}")
 logger.info(f"Columns: {list(df.columns)}")
 logger.info(f"Target column '{config.target}' distribution:")
 logger.info(df[config.target].value_counts())
+logger.info("========================")
+logger.info(len(df.columns))
 
 # COMMAND ----------
 # Load the Marvel characters dataset
